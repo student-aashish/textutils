@@ -1,25 +1,15 @@
 import React,{useState} from 'react';
 
-export default function About() {
+export default function About(props) {
 
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white"
-  });
-  const toggleStyle = () => {
-    if (myStyle.color === "black") {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-        border: "1px solid white"
-      });
-    } else {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white"
-      });
-    }
-  };
+  // const [myStyle, setMyStyle] = useState({
+  //   color: "black",
+  //   backgroundColor: "white"
+  // });
+  let myStyle = {
+    color: props.mode=== "dark"? "white":"#042743",
+    backgroundColor:props.mode ==="dark"?"#042743":"white"
+  }
 
   return (
     <div className="container" style={myStyle}>
@@ -35,86 +25,68 @@ export default function About() {
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
               aria-expanded="true"
-              aria-controls="collapseOne"
-            >
-              Accordion Item #1
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            className="accordion-collapse collapse show"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body" style={myStyle}>
-              <strong>This is the first item’s accordion body.</strong> It is shown by default,
-              until the collapse plugin adds the appropriate classes that we use to style each
-              element. These classes control the overall appearance, as well as the showing and
-              hiding via CSS transitions.
-            </div>
+              aria-controls="collapseOne">
+              Analyze your text
+              </button>
+              </h2>
+              <div
+              id="collapseOne"
+              className="accordion-collapse collapse show"
+              data-bs-parent="#accordionExample">
+              <div className="accordion-body" style={myStyle}>
+                <strong>Textutils gives you away to analyze your text quickly and efficiently. Be it word count, character count</strong>
+              </div>
           </div>
         </div>
 
         {/* Accordion Item #2 */}
-        <div className="accordion-item">
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button collapsed"
-              type="button"style={myStyle}
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
-              Accordion Item #2
-            </button>
-          </h2>
-          <div
-            id="collapseTwo"
-            className="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body" style={myStyle}>
-              <strong>This is the second item’s accordion body.</strong> It is hidden by default,
-              until the collapse plugin adds the appropriate classes that we use to style each
-              element.
-            </div>
+              <div className="accordion-item">
+                <h2 className="accordion-header">
+                <button
+                className="accordion-button collapsed"
+                type="button"style={myStyle}
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo">
+                  Free to use
+                </button>
+                </h2>
+                <div
+                    id="collapseTwo"
+                    className="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample"
+                     >
+                <div className="accordion-body" style={myStyle}>
+                  <strong>Textutils is a free character counter tool that provides instant character count & word count statistics for a given text. Textutils reports the number of words and characters. Thus it is suitable for writing text with word/ characters limits.</strong>
+                </div>
           </div>
         </div>
 
         {/* Accordion Item #3 */}
-        <div className="accordion-item">
-          <h2 className="accordion-header">
-            <button
-              className="accordion-button collapsed" style={myStyle}
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseThree"
-              aria-expanded="false"
-              aria-controls="collapseThree"
-            >
-              Accordion Item #3
-            </button>
-          </h2>
-          <div
-            id="collapseThree"
-            className="accordion-collapse collapse"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body" style={myStyle}>
-              <strong>This is the third item’s accordion body.</strong> It is hidden by default,
-              until the collapse plugin adds the appropriate classes that we use to style each
-              element.
+            <div className="accordion-item">
+              <h2 className="accordion-header">
+                <button
+                  className="accordion-button collapsed" style={myStyle}
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree">
+                    Browser Compatible
+
+                  </button>
+                  </h2>
+                  <div
+                    id="collapseThree"
+                    className="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample">
+                    <div className="accordion-body" style={myStyle}>
+                      <strong>This word counter software works in any web browsers such as Chrome, Firefox, Internet Explorer, Safari, Opera. It suits to count characters in facebook, blog, books, excel document, pdf document, essays, etc.</strong>
+                    </div>
+                  </div>
             </div>
-          </div>
         </div>
       </div>
-
-      {/* Dark mode button */}
-      <div className="container my-3">
-        <button onClick={toggleStyle} type="button" className="btn btn-primary">
-          Enable Dark Mode
-        </button>
-      </div>
-    </div>
   );
 }
